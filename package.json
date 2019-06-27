@@ -1,20 +1,20 @@
 {
-  "name": "icons",
+  "name": "design-icons",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "gulpfile.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ns3777k/icons.git"
+    "url": "git@github.com:MegafonWebLab/design-icons.git"
   },
   "scripts": {
+    "build": "gulp",
     "watch": "gulp watch"
   },
   "devDependencies": {
     "ejs": "^2.6.2",
     "gulp": "^4.0.2",
     "gulp-ejs": "^4.1.1",
-    "gulp-inject": "^5.0.2",
     "gulp-rename": "^1.4.0"
   }
 }
