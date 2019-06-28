@@ -1,5 +1,7 @@
 # Иконки
 
+[![Build Status](https://travis-ci.org/MegafonWebLab/design-icons.svg?branch=master)](https://travis-ci.org/MegafonWebLab/design-icons)
+
 ## Установка
 
 ```bash
