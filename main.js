@@ -18,15 +18,25 @@
         }
 
         const sizes = JSON.parse(iconContainer.dataset.sizes);
+        const sizeless = !!Number(iconContainer.dataset.sizeless);
+        const html = [];
 
         sizes.forEach(size => {
             const s = Number(size.size) * 2;
-            const el = document.createElement('img');
-            el.setAttribute('src', `icons/${size.fullPath}`);
-            el.style.width = `${s}px`;
-            el.style.height = `${s}px`;
-            wrapper.appendChild(el);
+            const downloadSizeTitle = sizeless ? '' : ` ${size.size}px`;
+
+            html.push(`
+                <div class="icons__info-icon-container">
+                    <a class="icons__download" href="icons/${size.fullPath}" download>
+                        <img src="icons/${size.fullPath}" width="${s}px" height="${s}px" />
+                        <div class="icons__info-icon-download-container">
+                            скачать${downloadSizeTitle}
+                        </div>
+                    </a>
+                </div>`);
         });
+
+        wrapper.innerHTML = html.join('');
     }
 
     const e = document.querySelector('.icons__info-close');
