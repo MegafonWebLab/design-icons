@@ -84,3 +84,14 @@ html {
 .icons__info-icon {
     margin-right: 15px;
 }
+.icons__download {
+    text-decoration: none;
+    color: black;
+}
+.icons__info-icon-container {
+    text-align: center;
+    width: 100px;
+}
+.icons__info-icon-download-container {
+    font-size: 12px;
+}

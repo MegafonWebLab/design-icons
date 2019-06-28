@@ -35,6 +35,7 @@ function parsePath(p) {
 
     let size;
     let name;
+    let sizeless = false;
 
     switch (rest.length) {
         // we have either (Category/)Dimension/icon.svg or (Category/)Dimension/icon_dimension.svg
@@ -53,6 +54,7 @@ function parsePath(p) {
                 name = makePrintFriendly(icon.join(' '));
             } else {
                 size = 36;
+                sizeless = true;
                 name = makePrintFriendly(icon.join(' '));
             }
 
@@ -62,7 +64,8 @@ function parsePath(p) {
     return {
         category: makePrintFriendly(category),
         size,
-        name
+        name,
+        sizeless
     };
 }
 
@@ -71,12 +74,13 @@ function build() {
         .filter(f => f.match(/\.svg$/))
         .map(f => f.replace('public/icons/', ''))
         .reduce((categories, fullPath) => {
-            const { category, size, name } = parsePath(fullPath);
+            const { category, size, name, sizeless } = parsePath(fullPath);
             categories[category] = categories[category] || {};
 
             if (!categories[category][name]) {
                 categories[category][name] = categories[category][name] || {
                     name,
+                    sizeless,
                     sizes: [{ size, fullPath }]
                 };
             } else {

@@ -14,15 +14,16 @@
     <div class="icons">
         <% for (let categoryName in categories) { %>
             <div>
-                <h2><%= categoryName %></h2>
+                <h2 class="icons_category-title"><%= categoryName %></h2>
                 <% if (Object.values(categories).length > 0) { %>
                     <div class="icons_list">
                         <% for (const icon in categories[categoryName]) { %>
-                            <div class="icons_container" data-sizes="<%= JSON.stringify(categories[categoryName][icon].sizes) %>">
+                            <% const iconRef = categories[categoryName][icon]; %>
+                            <div class="icons_container" data-sizeless="<%= Number(iconRef.sizeless) %>" data-sizes="<%= JSON.stringify(iconRef.sizes) %>">
                                 <div class="icons_svg">
-                                    <img src="icons/<%= categories[categoryName][icon].sizes[0].fullPath %>" width="36px" />
+                                    <img src="icons/<%= iconRef.sizes[0].fullPath %>" width="36px" />
                                 </div>
-                                <%= categories[categoryName][icon].name %>
+                                <%= iconRef.name %>
                             </div>
                         <% } %>
                     </div>
