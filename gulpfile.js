@@ -19,7 +19,11 @@ function makePrintFriendly(s) {
         .replace('_', ' ')
         .replace('-', ' ')
         .replace('-', ' ')
-        .replace('_', ' ');
+        .replace('_', ' ')
+        .toLowerCase()
+        .split(' ')
+        .map(w => w.charAt(0).toUpperCase() + w.substring(1))
+        .join(' ');
 }
 
 /*
